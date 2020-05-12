@@ -1,0 +1,127 @@
+/*  Stylesheet for Chapter 3 documents */
+
+/*@import url("/fonts/hvdbodedo.css"); 	/* using fonts from the server    */
+/*@import url("/fonts/negotiate.css");	/* since PHP will not run locally */
+/*@import url("/fonts/heydingsicons.css");
+@import url("/fonts/sappymugs.css");*/
+
+.phone{
+	display: inline;
+	width: 50px;
+}
+
+.inputs{
+	vertical-align: center;
+}
+
+#floorSelect, #roomSelect{
+	width: 100px;
+}
+
+#wrapper{	width:700px;
+		border:4px solid rgb(0,102,153);
+		padding:20px;
+		margin:2.5em auto 20px auto;
+	text-align: center;
+	}
+h1,h2	{	margin-bottom: 30px;
+		margin-top: 30px;
+		font: 2em hvdBodedoMedium;
+		font-weight: bold;
+	}
+
+h2	{	font-size: 1em; }
+
+p,li	{	font: 1em NegotiateFree;
+		padding: 5px;
+	}
+
+ol,ul 	{	list-style-type: none;
+	}
+
+nav{
+	margin: 5px;
+	padding: 5px;
+	float: left;
+	font-weight: bold;
+}
+	
+article	{	border: 2px solid rgb(102,102,102);
+		box-shadow: 3px 3px 3px rgb(51,51,51);
+		background-color: rgb(204,204,204);
+		padding: 10px;
+		font: 1.4em NegotiateFree;
+	}
+		
+pre	{	margin-left: 50px;
+		padding: 20px;
+		width: 250px;
+		border: 1px solid rgb(0,0,0);
+		box-shadow: 1px 1px 2px rgb(51,51,51);
+		border-radius: 40px;
+	}
+
+.one	{ 	background-color: rgba(255,255,0,.1);
+	}
+
+.two	{ 	background-color: rgba(0,255,255,.1);
+	}
+
+.three	{ 	background-color: rgba(255,255,0,.1);
+		width: 350px;
+	}
+.four	{ 	background-color: rgba(0,255,255,.1);
+		width: 350px;
+	}
+
+.five	{ 	background-color: rgba(255,255,0,.1);
+		width: 27em;
+	}
+.dblspc	{	line-height: 2;
+	}
+
+footer	{	font: 0.8em "Times New Roman"; 
+		font-style: italic;
+		text-align: center;
+		margin-top: 10px;
+	}
+
+.token	{	font-size: 0.9em; 
+	}
+
+label	{	display: inline;
+	}
+
+.dingbat	{	font: 2em HeydingsCommonIconsRegular;
+			color: rgb(255,0,0);
+			vertical-align: middle;
+		}
+.dingbat	{	font: 2em SappyMugs;
+			color: rgb(0,0,0);
+			vertical-align: middle;
+		}
+
+.oneTwenty       {	width: 120px;
+                        display: block;
+                        float: left;
+                }
+
+.classDiv	{	float:left; 
+		        margin-right:20px; 
+                }
+
+.contactRadio   {	float: left; 
+                        margin-right: 40px; 
+                }
+
+.twoColumn      {	width: 20em;
+			column-count: 2;
+			column-gap: 1em;
+			column-rule: 0px;
+			position: relative;
+		}
+label.hobby	{	float: left;
+			clear: both;
+		}
+
+.noMarg		{	margin: 0px;}
