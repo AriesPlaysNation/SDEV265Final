@@ -18,9 +18,26 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 $phone = $_POST['1phone'] . "-" . $_POST['2phone'] . "-" . $_POST['3phone'];
 $sizeText = getSizeText($size);
+$filename = "quotes/Quotes2020.csv";
 
 sendNotification($email, $total, $name, $phone);
 saveQuote($sizeText, $floors, $rooms, $total, $name, $phone, $email);
+$filehandle = fopen($filename, "a")
+    or die("<b>Cannot open file $filename for appending.");
+
+$filecontents = "Name, Email, Phone, Size, Floors, Rooms, Total\n";
+if(!file_exists($filename)){
+    fputs($filehandle, $filecontents);
+    fclose($filehandle);
+    chmod("$filename", 0664);
+}
+if(file_exists($filename)){
+    $filecontents = "$name, $email, $phone, $sizeText, $floors, $rooms, $total\n";
+    fputs($filehandle, $filecontents);
+    fclose($filehandle);
+    chmod("$filename", 0664);
+}
+
 
 echo "<article>\n";
 echo "\t<h1>$title</h1>\n";
@@ -36,6 +53,14 @@ echo "\t\tNumber of rooms: $rooms\n";
 echo "\t\tQuote Total: $$total\n";
 echo "\t</fieldset>\n";
 echo "<h2>Try a <a href='index.php'>new quote!</a></h2>\n";
+
+if(!file_exists($filename)){
+    echo "<h2>Oops!</h2>\n";
+    echo "<p>Something went wrong. The CSV file was not created.</p>\n";
+} else{
+    echo "<p>Right-Click this link to <a href=\"$filename\"";
+    echo "title=\"Right-Click and SAVE AS...\">Download CSV</a> file.</p>\n";
+}
 
 echo "<br/>";
 echo "</article>\n";
