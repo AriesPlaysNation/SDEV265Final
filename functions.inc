@@ -3,6 +3,29 @@
 Date: 5/12/2020
 Desc: Functions for webpage*/
 
+function saveQuote($size, $floors, $rooms, $total, $name, $phone, $email){
+    $filename = "quotes/Quotes2020.txt";
+    if(!file_exists($filename)){
+        mail("bradbotteron13@gmail.com", "File $filename", "File $filename does not exist. Attempting to create $filename!");
+    }
+    $filehandle = fopen($filename, "a")
+        or die("<b>$filename cannot be opened for writing.</b>\n");
+    $filecontents = date("m-d-Y") . " ";
+    $filecontents .= date("h:i a") . "\n";
+    $filecontents .= "NAME:\t\t$name\n";
+    $filecontents .= "EMAIL:\t\t$email\n";
+    $filecontents .= "PHONE:\t\t$phone\n";
+    $filecontents .= "HOUSE SIZE:\t$size\n";
+    $filecontents .= "FLOORS:\t\t$floors\n";
+    $filecontents .= "ROOMS:\t\t$rooms\n";
+    $filecontents .= "TOTAL:\t\t$total\n";
+    $filecontents .= "--------------------------\n";
+
+    fputs($filehandle, $filecontents); // write contents to file
+    fclose($filehandle); // close the file
+    chmod("$filename", 0664); // set file permissions
+}
+
 function sendNotification($email, $total, $name, $phone){
     $to = "bradbotteron13@gmail.com";
     $subject = "$name your total quote!";

@@ -20,6 +20,7 @@ $phone = $_POST['1phone'] . "-" . $_POST['2phone'] . "-" . $_POST['3phone'];
 $sizeText = getSizeText($size);
 
 sendNotification($email, $total, $name, $phone);
+saveQuote($sizeText, $floors, $rooms, $total, $name, $phone, $email);
 
 echo "<article>\n";
 echo "\t<h1>$title</h1>\n";
