@@ -3,6 +3,10 @@
 Date: 5/12/2020
 Desc: Functions for webpage*/
 
+function sendNotification($email, $total, $name, $phone){
+
+}
+
 function calculateQuote($size, $rooms, $floors, $sheen){
 
     $total = 0;

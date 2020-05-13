@@ -25,17 +25,12 @@ if($accept == 0){
 
 echo "<article>\n";
 echo "\t<h1>$title</h1>\n";
-if($accept == 0){
-    echo <<<heredoc
-
-<h3>Restart Your Quote <a href="index.php">Here</a>! </h3>
-House size is $sizeText sq feet.<br/>
-Number of floors: $floors.<br/>
-Number of rooms: $rooms.<br/>
-Total Quote: $$total.<br/><br/>
-heredoc;
-    if(!isset($_POST['submit'])){
-        echo "\n";
+// This is where the form should start for accept/deny
+if(!isset($_POST['submit'])){
+    if($accept == 1){
+        echo "<h2>Thank you for trying out our quote calculator.</h2>\n";
+        echo "<h2>If you would like to start a new quote click <a href='index.php'>here!</a></h2>\n";
+    } else{
         echo <<<herdoc
 <form action="$thisScript" method="post">
 <fieldset>
@@ -59,22 +54,17 @@ heredoc;
 </fieldset>
 </form>
 herdoc;
-    }
-    else{
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['1phone'] . "-" . $_POST['2phone'] . "-" . $_POST['3phone'];
-        $total = $_POST['total'];
-        echo <<<heredoc
-
-<h2>An email has been sent to $email. Thank you for accepting the quote of $$total $name</h2>
-heredoc;
-
-    }
-} else{
-    echo "Thank you for taking the time to get a quote
-    with us.<br/>To redo your quote click <a href='index.php'>here!</a>\n";
+    } // end of else ($accept == 0)
+} else{ // End of else isset
+    $email = trim($_POST['email']);
+    $name = trim($_POST['name']);
+    $phone = $_POST['1phone'] . "-" . $_POST['2phone'] . "-" . $_POST['3phone'];
+    sendNotification($email, $total, $name, $phone);
+    echo "<h2>Thank you for accepting our quote!</h2>\n";
+    echo "<h2>Notification has been sent to: $email. Thank you $name for using our quote calculator.</h2>\n";
 }
+
+
 echo "<br/>";
 echo "</article>";
 require ("htmlFoot.inc");
