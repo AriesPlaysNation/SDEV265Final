@@ -12,9 +12,9 @@ echo <<<heredoc
 <article>
 <h1>$title</h1>
 <ul>
-<li>Start your quote!</a></li>
+<li>Start your quote!</li>
 </ul>
-<form action="floorInfo.html.php" method="post">
+<form action="floorInfo.php" method="post">
 <fieldset>
 <legend>What size house do you have?</legend>
 <input class="inputs" type="radio" value="0" name="size" checked="checked"/>Less than 1200<br/>

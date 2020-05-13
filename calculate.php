@@ -19,13 +19,14 @@ if(isset($_POST['room6'])){ $room6 = $_POST['room6'];array_push($roomsArray, $ro
 if(isset($_POST['room7'])){ $room7 = $_POST['room7'];array_push($roomsArray, $room7);}
 if(isset($_POST['room8'])){ $room8 = $_POST['room8'];array_push($roomsArray, $room8);}
 
+
+require ("htmlHead.inc");
 require("functions.inc");
 $sizeText = getSizeText($size);
-require ("htmlHead.inc");
 echo <<<heredoc
 <article>
 <h1>$title</h1>
-<h3>Made a mistake? <a href="index.html.php">Go Home</a></h3>
+<h3>Made a mistake? <a href="index.php">Go Home</a></h3>
 
 House size is $sizeText sq feet.<br/>
 Number of floors: $floors.<br/>

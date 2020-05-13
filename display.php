@@ -2,26 +2,33 @@
 Date: 5/4/2020
 Desc: Quote Application Home Page -->
 <?php
-require("functions.inc");
 $metaDescription = "Accepting or Denying the quote and sending out notifications.";
-$title = "Thank you for Accepting/Denying our quote!";
+$title = "Thank you for Accepting our quote!";
 $pageID = "notification";
+$accept = $_POST['acceptdeny'];
+$thisScript = htmlspecialchars($_SERVER['PHP_SELF']);
+//require ("connecti2db.inc.php"); // sets $connection
+//require ("metaQueries.inc"); // DB for meta desc
+
+require ("htmlHead.inc");
+require("functions.inc");
+
 $size = $_POST['size'];
 $floors = $_POST['floors'];
 $rooms = $_POST['rooms'];
 $total = $_POST['total'];
-$sizeText = "";
 $sizeText = getSizeText($size);
-$accept = $_POST['acceptdeny'];
-$thisScript = htmlspecialchars($_SERVER['PHP_SELF']);
 
-require ("htmlHead.inc");
+if($accept == 0){
+    $title = "Thank you for accepting our quote!";
+} else { $title = "Thank you for trying out our quote calculator!";} // if else for if they accept or deny quote
+
 echo "<article>\n";
 echo "\t<h1>$title</h1>\n";
 if($accept == 0){
     echo <<<heredoc
 
-<h3>Restart Your Quote <a href="index.html.php">Here</a>! </h3>
+<h3>Restart Your Quote <a href="index.php">Here</a>! </h3>
 House size is $sizeText sq feet.<br/>
 Number of floors: $floors.<br/>
 Number of rooms: $rooms.<br/>
@@ -57,9 +64,6 @@ herdoc;
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['1phone'] . "-" . $_POST['2phone'] . "-" . $_POST['3phone'];
-        $rooms = $_POST['rooms'];
-        $floors = $_POST['floors'];
-        $size = $_POST['size'];
         $total = $_POST['total'];
         echo <<<heredoc
 
@@ -69,7 +73,7 @@ heredoc;
     }
 } else{
     echo "Thank you for taking the time to get a quote
-    with us.<br/>To redo your quote click <a href='index.html.php'>here!</a>\n";
+    with us.<br/>To redo your quote click <a href='index.php'>here!</a>\n";
 }
 echo "<br/>";
 echo "</article>";

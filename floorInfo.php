@@ -17,7 +17,7 @@ require ("htmlHead.inc");
 echo <<<heredoc
 <article>
 <h1>$title</h1>
-<h3>Made a mistake? <a href="index.html.php">Go Back</a> </h3>
+<h3>Made a mistake? <a href="index.php">Go Back</a> </h3>
 
 House size is $sizeText sq feet.<br/>
 Number of floors: $floors.<br/>
