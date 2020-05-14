@@ -37,24 +37,25 @@ if($accept == 1){
     echo "\t\tQuote Total: $$total<br/>";
     echo "\t</fieldset>\n";
     echo <<<herdoc
-<form action="notification.php" method="post">
+<form action="notification.php" method="post" id="formDetails" name="myForm">
 <fieldset>
 <legend>Fill in your information to be emailed a copy of your quote.</legend>
+<p id="errorMsg"></p>
 <label>First Name</label>
-<input type="text" name="fname" placeholder="Enter your full name" id="fname"/><br/>
+<input type="text" name="fname" placeholder="Enter your full name" id="firstNameInput"/><br/>
 <label>Last Name</label>
-<input type="text" name="lname" placeholder="Enter your full name" id="lname"/><br/>
+<input type="text" name="lname" placeholder="Enter your full name" id="lastNameInput"/><br/>
 <label>Email</label>
-<input type="email" name="email" placeholder="Enter your email" id="email"/><br/>
+<input type="email" name="email" placeholder="Enter your email" id="emailInput"/><br/>
 <label>Phone</label>
-<input type="tel" name="phone" placeholder="555-555-5555" id="phone"/>
+<input type="tel" name="phone" placeholder="555-555-5555" id="telephoneInput"/>
 <input type="hidden" name="size" value="$size"/>
 <input type="hidden" name="floors" value="$floors"/>
 <input type="hidden" name="rooms" value="$rooms"/>
 <input type="hidden" name="total" value="$total"/>
 
 <input type="reset" name="Clear" value="Clear"/>
-<input type="submit" name="Submit" value="Submit"/>
+<input type="button" value="Submit" id="submitBtn" class="form"/>
 </fieldset>
 </form>
 herdoc;

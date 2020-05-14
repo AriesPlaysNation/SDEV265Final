@@ -5,7 +5,11 @@ echo <<<heredoc
 || &copy; 2020-$year Painting Quote Calculator ||
 </footer>
 </div><!--wrapper-->
-<script src="script.js"></script>
+heredoc;
+if($pageID == "notification"){
+    echo "<script src=\"script.js\"></script>";
+}
+echo <<<heredoc
 </body>
 </html>
 heredoc;
