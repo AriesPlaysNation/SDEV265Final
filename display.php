@@ -40,14 +40,14 @@ if($accept == 1){
 <form action="notification.php" method="post">
 <fieldset>
 <legend>Fill in your information to be emailed a copy of your quote.</legend>
-<label>Name</label>
-<input type="text" name="name" placeholder="Enter your full name"/><br/>
+<label>First Name</label>
+<input type="text" name="fname" placeholder="Enter your full name" id="fname"/><br/>
+<label>Last Name</label>
+<input type="text" name="lname" placeholder="Enter your full name" id="lname"/><br/>
 <label>Email</label>
-<input type="email" name="email" placeholder="Enter your email"/><br/>
+<input type="email" name="email" placeholder="Enter your email" id="email"/><br/>
 <label>Phone</label>
-<input class="phone" type="number" name="1phone" minlength="3" maxlength="3"/>
-<input class="phone" type="number" name="2phone" minlength="3" maxlength="3"/>
-<input class="phone" type="number" name="3phone" minlength="4" maxlength="4"/><br/>
+<input type="tel" name="phone" placeholder="555-555-5555" id="phone"/>
 <input type="hidden" name="size" value="$size"/>
 <input type="hidden" name="floors" value="$floors"/>
 <input type="hidden" name="rooms" value="$rooms"/>

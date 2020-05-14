@@ -5,7 +5,7 @@ echo <<<heredoc
 || &copy; 2020-$year Painting Quote Calculator ||
 </footer>
 </div><!--wrapper-->
-<script src="scripts/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
 heredoc;

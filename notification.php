@@ -14,14 +14,15 @@ $size = $_POST['size'];
 $floors = $_POST['floors'];
 $rooms = $_POST['rooms'];
 $total = $_POST['total'];
-$name = $_POST['name'];
+$fname = $_POST['fname'];
+$lname = $_POST['lname'];
 $email = $_POST['email'];
-$phone = $_POST['1phone'] . "-" . $_POST['2phone'] . "-" . $_POST['3phone'];
+$phone = $_POST['phone'];
 $sizeText = getSizeText($size);
 $filename = "quotes/Quotes2020.csv";
 
-sendNotification($email, $total, $name, $phone);
-saveQuote($sizeText, $floors, $rooms, $total, $name, $phone, $email);
+sendNotification($email, $total, $fname, $lname, $phone);
+saveQuote($sizeText, $floors, $rooms, $total, $fname, $lname, $phone, $email);
 $filehandle = fopen($filename, "a")
     or die("<b>Cannot open file $filename for appending.");
 
@@ -32,7 +33,7 @@ if(!file_exists($filename)){
     chmod("$filename", 0664);
 }
 if(file_exists($filename)){
-    $filecontents = "$name, $email, $phone, $sizeText, $floors, $rooms, $total\n";
+    $filecontents = "$fname $lname, $email, $phone, $sizeText, $floors, $rooms, $total\n";
     fputs($filehandle, $filecontents);
     fclose($filehandle);
     chmod("$filename", 0664);
@@ -43,7 +44,7 @@ echo "<article>\n";
 echo "\t<h1>$title</h1>\n";
 
 echo "An email has been sent to <code>$email</code>. Thank you for accepting the quote
-of $$total <code>$name</code>.\n<br/>";
+of $$total <code>$fname $lname</code>.\n<br/>";
 
 echo "\t<fieldset>\n";
 echo "\t\t<legend>Details of your quote:</legend>\n";

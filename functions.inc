@@ -3,7 +3,7 @@
 Date: 5/12/2020
 Desc: Functions for webpage*/
 
-function saveQuote($size, $floors, $rooms, $total, $name, $phone, $email){
+function saveQuote($size, $floors, $rooms, $total, $fname, $lname, $phone, $email){
     $filename = "quotes/Quotes2020.txt";
     if(!file_exists($filename)){
         mail("bradbotteron13@gmail.com", "File $filename", "File $filename does not exist. Attempting to create $filename!");
@@ -12,7 +12,7 @@ function saveQuote($size, $floors, $rooms, $total, $name, $phone, $email){
         or die("<b>$filename cannot be opened for writing.</b>\n");
     $filecontents = date("m-d-Y") . " ";
     $filecontents .= date("h:i a") . "\n";
-    $filecontents .= "NAME:\t\t$name\n";
+    $filecontents .= "NAME:\t\t$fname $lname\n";
     $filecontents .= "EMAIL:\t\t$email\n";
     $filecontents .= "PHONE:\t\t$phone\n";
     $filecontents .= "HOUSE SIZE:\t$size\n";
@@ -26,17 +26,17 @@ function saveQuote($size, $floors, $rooms, $total, $name, $phone, $email){
     chmod("$filename", 0664); // set file permissions
 }
 
-function sendNotification($email, $total, $name, $phone){
+function sendNotification($email, $total, $fname, $lname, $phone){
     $to = "bradbotteron13@gmail.com";
-    $subject = "$name your total quote!";
+    $subject = "$fname $lname your total quote!";
     $msg = "";
-    $msg .= ucfirst($name) . ", thank you for accepting our quote!\n";
+    $msg .= ucfirst($fname. $lname) . ", thank you for accepting our quote!\n";
     $msg .= "Your total quote amount is $$total\n";
     $msg .= "Someone will be in contact with you shortly about scheduling ";
     $msg .= "an appointment to come verify your house size and start painting!\n";
     $msg .= "If your phone number is not $phone, please resubmit or send an email to \n";
     $msg .= "bradbotteron13@gmail.com\n";
-    $msg .= "Again, thank you $name, for using our quote calculator!\n";
+    $msg .= "Again, thank you $fname $lname, for using our quote calculator!\n";
     $msg .= "Nasty disclaimer incoming:\n";
     $msg .= "Total quote stated above is subject to change. \nWe will bill actual hours ";
     $msg .= "incurred for each position as the time arrises. \nAny out of scope work is subject ";
