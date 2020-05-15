@@ -18,7 +18,7 @@ function saveQuote($size, $floors, $rooms, $total, $fname, $lname, $phone, $emai
     $filecontents .= "HOUSE SIZE:\t$size\n";
     $filecontents .= "FLOORS:\t\t$floors\n";
     $filecontents .= "ROOMS:\t\t$rooms\n";
-    $filecontents .= "TOTAL:\t\t$total\n";
+    $filecontents .= "TOTAL:\t\t$$total\n";
     $filecontents .= "--------------------------\n";
 
     fputs($filehandle, $filecontents); // write contents to file

@@ -33,7 +33,7 @@ if(!file_exists($filename)){
     chmod("$filename", 0664);
 }
 if(file_exists($filename)){
-    $filecontents = "$fname $lname, $email, $phone, $sizeText, $floors, $rooms, $total\n";
+    $filecontents = "$fname $lname, $email, \"$phone\", $sizeText, $floors, $rooms, $$total\n";
     fputs($filehandle, $filecontents);
     fclose($filehandle);
     chmod("$filename", 0664);
